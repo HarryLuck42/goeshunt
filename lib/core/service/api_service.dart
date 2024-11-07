@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:goes_hunt/model/response/videos_response.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/error_logger.dart';
 
@@ -18,5 +19,11 @@ abstract class ApiService {
   Future<PhotosResponse> searchPhotos(@Query("query") String keyword,
       @Query("page") int page, @Query("per_page") int limit);
 
+  @GET("videos/popular")
+  Future<VideosResponse> getVideos(
+      @Query("page") int page, @Query("per_page") int limit);
 
+  @GET("videos/search")
+  Future<VideosResponse> searchVideos(@Query("query") String keyword,
+      @Query("page") int page, @Query("per_page") int limit);
 }

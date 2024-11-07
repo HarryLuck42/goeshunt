@@ -37,7 +37,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
         ref.getPhotos();
       },
       child: CustomScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         controller: paginationScrollController.scrollController,
         slivers: [
           !ref.connect.value ? const SliverToBoxAdapter(child: OfflineState()) : ref.photos.isEmpty
