@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../helper/helper.dart';
+
 mixin BaseState<T extends StatefulWidget> on State<T> {
 
+  final helper = Helper();
   @override
   void initState() {
     super.initState();

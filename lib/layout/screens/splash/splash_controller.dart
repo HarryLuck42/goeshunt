@@ -1,3 +1,5 @@
+import 'package:goes_hunt/core/routing/routes.dart';
+
 import '../../../core/base/base_controller.dart';
 
 class SplashController extends BaseController{
@@ -10,7 +12,7 @@ class SplashController extends BaseController{
 
   Future goToHomeScreen() async {
     Future.delayed(const Duration(seconds: 3), (){
-
+      routing.moveReplacement(Routes.home);
     });
   }
 }
