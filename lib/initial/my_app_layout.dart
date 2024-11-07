@@ -28,27 +28,24 @@ class _MyAppLayoutState extends State<MyAppLayout> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => LifecycleManager(
-            child: MaterialApp(
+            child: GetMaterialApp(
           title: "Goes Hunt",
           theme: ref.themeData.value,
           navigatorObservers: [
             CustomRouteObserver(),
             CustomRouteObserver.routeObserver
           ],
-              supportedLocales: const [
-                Locale("en"),
-                Locale("id")
-              ],
-              locale: Locale(ref.lang.value),
-              localizationsDelegates: const [
-                AppLocale.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate
-              ],
-              home: const SplashScreen(),
-              onGenerateRoute: RoutesActions.allActions,
-              debugShowCheckedModeBanner: false,
+          supportedLocales: const [Locale("en"), Locale("id")],
+          locale: Locale(ref.lang.value),
+          localizationsDelegates: const [
+            AppLocale.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate
+          ],
+          home: const SplashScreen(),
+          onGenerateRoute: RoutesActions.allActions,
+          debugShowCheckedModeBanner: false,
         )));
   }
 }

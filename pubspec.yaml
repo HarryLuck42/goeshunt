@@ -79,10 +79,9 @@ flutter:
   assets:
     - assets/languages/
     - assets/fonts/
+    - assets/vector/
+    - assets/json/
   fonts:
-    - family: Fresca
-      fonts:
-        - asset: assets/fonts/Fresca-Regular.ttf
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto-Thin.ttf
