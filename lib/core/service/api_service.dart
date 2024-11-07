@@ -10,11 +10,13 @@ part 'api_service.g.dart';
 abstract class ApiService {
   factory ApiService(Dio dio, {required String baseUrl}) = _ApiService;
 
-  @GET("curated")
+  @GET("v1/curated")
   Future<PhotosResponse> getPhotos(
       @Query("page") int page, @Query("per_page") int limit);
 
-  @GET("search")
+  @GET("v1/search")
   Future<PhotosResponse> searchPhotos(@Query("query") String keyword,
       @Query("page") int page, @Query("per_page") int limit);
+
+
 }

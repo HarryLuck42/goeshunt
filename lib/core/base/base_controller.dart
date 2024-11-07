@@ -9,6 +9,8 @@ class BaseController extends GetxController{
 
   final isLoading = true.obs;
 
+  final connect = true.obs;
+
   final sharedPre = SharedPreference();
 
   final helper = Helper();
