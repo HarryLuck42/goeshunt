@@ -1,5 +1,11 @@
 import 'dart:io';
 
+import 'package:flutter/services.dart';
+
+import '../constraint/sp_keys.dart';
+import '../memory/shared/share_preference.dart';
+import '../themes/app_colors.dart';
+
 class Helper{
   Helper._private();
 
@@ -20,5 +26,15 @@ class Helper{
       connection = false;
     }
     return connection;
+  }
+
+  void systemUIOverlayTheme() {
+    bool theme = SharedPreference().readStorage(SpKeys.isLightTheme) ?? true;
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarIconBrightness: theme ? Brightness.light : Brightness.dark,
+      statusBarColor: theme ? Surface : LightSurface,
+      systemNavigationBarIconBrightness: theme ? Brightness.light : Brightness.dark,
+      systemNavigationBarColor: theme ? Surface : LightSurface,
+    ));
   }
 }
