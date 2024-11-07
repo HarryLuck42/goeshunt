@@ -3,12 +3,14 @@ import 'package:flutter/cupertino.dart';
 class PaginationScrollController {
   late ScrollController scrollController;
   late Function loadAction;
+  late Function? upState;
 
-  void init({Function? initAction, required Function loadAction}) {
+  void init({Function? initAction, required Function loadAction, Function? upState}) {
     if (initAction != null) {
       initAction();
     }
     this.loadAction = loadAction;
+    this.upState = upState;
     scrollController = ScrollController()..addListener(scrollListener);
   }
 
@@ -18,10 +20,16 @@ class PaginationScrollController {
   }
 
   void scrollListener() {
-    double maxScroll = scrollController.position.maxScrollExtent;
+    double maxScroll = scrollController.position.maxScrollExtent - 5;
+    double minScroll = scrollController.position.minScrollExtent;
     double currentScroll = scrollController.position.pixels;
-    if (maxScroll == currentScroll) {
+    if (maxScroll <= currentScroll) {
       loadAction();
+    }else if(minScroll == currentScroll){
+      if(upState != null){
+        upState!();
+      }
+
     }
   }
 }
