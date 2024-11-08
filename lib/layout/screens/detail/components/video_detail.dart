@@ -20,7 +20,7 @@ class VideoDetail extends StatefulWidget {
 
 class _VideoDetailState extends State<VideoDetail> {
   late VideoPlayerController _videoPlayerController;
-  late Future<void>_initializeVideoPlayer;
+  late Future<void> _initializeVideoPlayer;
 
   @override
   void initState() {
@@ -51,28 +51,25 @@ class _VideoDetailState extends State<VideoDetail> {
         builder: (context, snapshot) {
           return Scaffold(
             body: NestedScrollView(
-                headerSliverBuilder: (BuildContext context,
-                    bool innerBoxIsScrolled) {
+                headerSliverBuilder:
+                    (BuildContext context, bool innerBoxIsScrolled) {
                   return [
                     SliverAppBar(
                       expandedHeight: 200.0,
-                      backgroundColor: context
-                          .getColorScheme()
-                          .onPrimary,
+                      backgroundColor: context.getColorScheme().onPrimary,
                       floating: false,
                       pinned: true,
                       flexibleSpace: FlexibleSpaceBar(
                           centerTitle: true,
                           title: CustomText(
-                            textToDisplay: lang(context).videoDetail ?? 'Video Detail',
+                            textToDisplay:
+                                lang(context).videoDetail ?? 'Video Detail',
                             textStyle: context
                                 .getTextTheme()
                                 .titleSmall
                                 ?.copyWith(
-                                color: context
-                                    .getColorScheme()
-                                    .primary,
-                                fontWeight: FontWeight.w600),
+                                    color: context.getColorScheme().primary,
+                                    fontWeight: FontWeight.w600),
                           ),
                           background: CustomImageNetwork(
                             width: double.infinity,
@@ -89,25 +86,28 @@ class _VideoDetailState extends State<VideoDetail> {
                   children: [
                     eightPx,
                     snapshot.connectionState == ConnectionState.done
-                        ? AspectRatio(
-                      aspectRatio: _videoPlayerController.value.aspectRatio,
-                      child: VideoPlayer(_videoPlayerController),)
-                        : Container(width: double.infinity,
-                      height: context.getWidth() * 0.6,
-                      alignment: Alignment.center,
-                      child: const CustomLoading(),),
+                        ? SizedBox(
+                            width: double.infinity,
+                            height: context.getWidth() * 0.6,
+                            child: AspectRatio(
+                              aspectRatio:
+                                  _videoPlayerController.value.aspectRatio,
+                              child: VideoPlayer(_videoPlayerController),
+                            ),
+                          )
+                        : Container(
+                            width: double.infinity,
+                            height: context.getWidth() * 0.6,
+                            alignment: Alignment.center,
+                            child: const CustomLoading(),
+                          ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: CustomText(
                         textToDisplay: widget.video.user?.name ?? "-",
-                        textStyle: context
-                            .getTextTheme()
-                            .bodyLarge
-                            ?.copyWith(
+                        textStyle: context.getTextTheme().bodyLarge?.copyWith(
                             fontWeight: FontWeight.w700,
-                            color: context
-                                .getColorScheme()
-                                .primary),
+                            color: context.getColorScheme().primary),
                         maxLines: 2,
                         textAlign: TextAlign.start,
                       ),
@@ -115,7 +115,6 @@ class _VideoDetailState extends State<VideoDetail> {
                   ],
                 )),
           );
-        }
-    );
+        });
   }
 }

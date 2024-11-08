@@ -21,7 +21,6 @@ class _PhotoScreenState extends State<PhotoScreen> {
 
   @override
   void initState() {
-    ref.getPhotos();
     super.initState();
   }
 

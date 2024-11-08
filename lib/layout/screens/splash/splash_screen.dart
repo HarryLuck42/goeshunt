@@ -24,6 +24,17 @@ class SplashScreen extends StatelessWidget {
             ),
           ),
           Positioned(
+            left: 0,
+            right: 0,
+            top: context.getHeight() * 0.3,
+            child: Image.asset(
+              '${AssetPath.image}app_icon.png',
+              fit: BoxFit.contain,
+              width: context.getWidth() * 0.5,
+              height: context.getWidth() * 0.5,
+            ),
+          ),
+          Positioned(
             bottom: 0,
             left: -100,
             right: -100,
