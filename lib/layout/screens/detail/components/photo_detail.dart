@@ -4,6 +4,7 @@ import 'package:goes_hunt/core/extention/extention.dart';
 import 'package:goes_hunt/model/response/photos_response.dart';
 
 import '../../../../core/constraint/spacer.dart';
+import '../../../../core/locale/localizations.dart';
 import '../../../../widgets/custom_image_network.dart';
 import '../../../../widgets/custom_text.dart';
 
@@ -26,7 +27,7 @@ class PhotoDetail extends StatelessWidget {
                 flexibleSpace: FlexibleSpaceBar(
                     centerTitle: true,
                     title: CustomText(
-                      textToDisplay: 'Photo Detail',
+                      textToDisplay: lang(context).photoDetail ?? 'Photo Detail',
                       textStyle: context.getTextTheme().titleSmall?.copyWith(
                           color: context.getColorScheme().primary,
                           fontWeight: FontWeight.w600),

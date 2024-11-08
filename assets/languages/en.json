@@ -7,5 +7,9 @@
   "light": "Light",
   "language": "Language",
   "no_data_found": "No Data Found",
-  "search": "Search"
+  "search": "Search",
+  "photos": "Photos",
+  "videos": "Videos",
+  "photo_detail": "Photo Detail",
+  "video_detail": "Video Detail"
 }

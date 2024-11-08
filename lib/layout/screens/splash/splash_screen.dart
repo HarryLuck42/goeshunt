@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:goes_hunt/core/extention/extention.dart';
-import 'package:goes_hunt/core/locale/localizations.dart';
 import 'package:goes_hunt/layout/screens/splash/splash_controller.dart';
-import 'package:goes_hunt/widgets/custom_text.dart';
 
 import '../../../core/constraint/asset_path.dart';
 

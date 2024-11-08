@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:goes_hunt/core/extention/extention.dart';
+import 'package:goes_hunt/core/locale/localizations.dart';
 import 'package:goes_hunt/widgets/custom_loading.dart';
 import 'package:video_player/video_player.dart';
 
@@ -63,7 +64,7 @@ class _VideoDetailState extends State<VideoDetail> {
                       flexibleSpace: FlexibleSpaceBar(
                           centerTitle: true,
                           title: CustomText(
-                            textToDisplay: 'Photo Detail',
+                            textToDisplay: lang(context).videoDetail ?? 'Video Detail',
                             textStyle: context
                                 .getTextTheme()
                                 .titleSmall

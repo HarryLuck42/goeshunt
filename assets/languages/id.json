@@ -7,5 +7,9 @@
   "light": "Cerah",
   "language": "Bahasa",
   "no_data_found": "Data Tidak Ditemukan",
-  "search": "Cari"
+  "search": "Cari",
+  "photos": "Foto",
+  "videos": "Video",
+  "photo_detail": "Detail Foto",
+  "video_detail": "Detail Video"
 }
