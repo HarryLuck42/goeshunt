@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       body: NestedScrollView(
         controller: paginationScrollController.scrollController,
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return <Widget>[
+          return [
             SliverAppBar(
               expandedHeight: 200.0,
               backgroundColor: context.getColorScheme().onPrimary,

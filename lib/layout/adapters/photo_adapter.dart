@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:goes_hunt/core/extention/extention.dart';
+import 'package:goes_hunt/core/routing/routes.dart';
 import 'package:goes_hunt/model/response/photos_response.dart';
 import 'package:goes_hunt/widgets/custom_text.dart';
 import '../../../widgets/custom_image_network.dart';
@@ -17,7 +18,9 @@ class PhotoAdapter extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(left: 4, right: 4, top: 4, bottom: 4),
       child: CustomGesture(
-        onTap: () {},
+        onTap: () {
+          routing.move(Routes.detail, argument: photo);
+        },
         radius: 12,
         child: Container(
           decoration: BoxDecoration(

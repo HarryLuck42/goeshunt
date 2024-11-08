@@ -4,6 +4,7 @@ import 'package:goes_hunt/model/response/videos_response.dart';
 import 'package:goes_hunt/widgets/custom_text.dart';
 import '../../../widgets/custom_image_network.dart';
 import '../../core/routing/app_routing.dart';
+import '../../core/routing/routes.dart';
 import '../../widgets/custom_gesture.dart';
 
 class VideoAdapter extends StatelessWidget {
@@ -19,7 +20,9 @@ class VideoAdapter extends StatelessWidget {
       width: double.infinity,
       height: context.getHeight() * 0.3,
       child: CustomGesture(
-        onTap: () {},
+        onTap: () {
+          routing.move(Routes.detail, argument: video);
+        },
         radius: 12,
         child: Container(
           decoration: BoxDecoration(
