@@ -125,8 +125,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           color: context.getColorScheme().primary),
                       insets: const EdgeInsets.symmetric(horizontal: 16.0)),
                   tabs: [
-                    Tab(icon: const Icon(Icons.image), text: lang(context).photos ?? "Photos"),
-                    Tab(
+                    Tab(key: const Key("Photo"), icon: const Icon(Icons.image), text: lang(context).photos ?? "Photos"),
+                    Tab(key: const Key("Video"),
                         icon: const Icon(Icons.ondemand_video_outlined),
                         text: lang(context).videos ?? "Videos"),
                   ],
