@@ -110,7 +110,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             SliverPersistentHeader(
               delegate: _SliverAppBarDelegate(
                 TabBar(
-                  onTap: (index) => {},
                   controller: tabController,
                   labelColor: context.getColorScheme().primary,
                   labelStyle: context

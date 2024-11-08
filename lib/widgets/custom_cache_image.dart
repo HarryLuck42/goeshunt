@@ -44,12 +44,7 @@ class _CustomCacheImageState extends State<CustomCacheImage> with BaseState{
   bool connection = true;
   @override
   void afterFirstLayout(BuildContext context) {
-    Future.delayed(Duration.zero, () async{
-      connection = await helper.checkConnections();
-      setState(() {
 
-      });
-    });
   }
 
   @override

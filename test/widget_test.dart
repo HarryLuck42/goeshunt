@@ -6,26 +6,36 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:goes_hunt/initial/my_app_layout.dart';
-
-import 'package:goes_hunt/main.dart';
+import 'package:get/get.dart';
+import 'package:goes_hunt/core/locale/localizations.dart';
+import 'package:goes_hunt/initial/app_controller.dart';
+import 'package:goes_hunt/layout/adapters/photo_adapter.dart';
+import 'package:goes_hunt/layout/components/state_widgets/loading_list.dart';
+import 'package:goes_hunt/layout/screens/home/home_screen.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyAppLayout());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  
+  testWidgets('Cek Data Pictures', (WidgetTester tester) async {
+    final ref = Get.put(AppController());
+    ref.setInitialState();
+    WidgetsFlutterBinding.ensureInitialized();
+    await tester.pumpWidget(GetMaterialApp(
+      supportedLocales: const [Locale("en"), Locale("id")],
+      locale: Locale(ref.lang.value),
+      localizationsDelegates: const [
+        AppLocale.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      home: const HomeScreen(),
+    ));
+    expect(find.byIcon(Icons.image), findsOneWidget);
+    expect(find.byIcon(Icons.ondemand_video_outlined), findsOneWidget);
+    expect(find.byType(LoadingList), findsOneWidget);
+    await tester.pump(Duration(seconds: 2));
+    expect(find.byType(LoadingList), findsOneWidget);
   });
 }

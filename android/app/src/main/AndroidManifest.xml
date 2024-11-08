@@ -1,8 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="goes_hunt"
+        android:label="Goes Hunt"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/app_launcher"
+        android:roundIcon="@mipmap/app_launcher_round">
         <activity
             android:name=".MainActivity"
             android:exported="true"
